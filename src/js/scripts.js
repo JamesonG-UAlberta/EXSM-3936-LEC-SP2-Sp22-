@@ -1,9 +1,10 @@
 const theInput = document.querySelector("input");
-const theButton = document.querySelector("button");
+const addButton = document.querySelector("button:first-of-type");
+const clearButton = document.querySelector("button:last-of-type");
 const theList = document.querySelector("ul");
 theInput.focus();
 
-function runThisWhenWeClickTheButton() {
+function addButtonClick() {
     if (theInput.value.trim() !== "") {
         const newLI = document.createElement("li");
         newLI.innerText = theInput.value.trim();
@@ -12,13 +13,25 @@ function runThisWhenWeClickTheButton() {
         theInput.focus();
     }
 }
+function clearButtonClick() {
+    theList.innerHTML = "";
+}
 
-theButton.addEventListener("click", runThisWhenWeClickTheButton);
+addButton.addEventListener("click", addButtonClick);
+clearButton.addEventListener("click", clearButtonClick);
 
 /*
 Try to add:
 
--Validation to only insert a li if the text field is not whitespace.
--Clear the text field after each addition.
--Add a second button to clear the list.
+-A remove button to each item (styling your choice).
+-Display an error when the user tries to add a blank field, hide the error on the next successful add.
+-Add checkboxes to each item.
+-Add some styling to make it "pretty".
+
+Challenge:
+-Add a separate list for completed items.
+    -When a checkbox is ticked, move the item to the completed list. 
+    -When a checkbox is unticked, move the item back to the incomplete list.
+-Add a sort button that will sort both lists alphabetically.
+    -If it's already alphabetical, sort it in reverse alphabetical.
 */

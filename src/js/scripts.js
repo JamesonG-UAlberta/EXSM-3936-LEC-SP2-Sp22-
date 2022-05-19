@@ -18,17 +18,23 @@ clearButton.addEventListener("click", () => {
     theList.innerHTML = "";
 });
 document.addEventListener("keydown", eventArgs => {
-    switch (eventArgs.key) {
-        case "Enter":
-            // Emulate a click on the add button if the key was Enter.
-            addButton.click();
-            break;
-        case "Delete":
-            if (document.activeElement !== theInput) {
-                document.querySelector("ul>li:last-of-type").remove();
-            }
-            break;
-    }
+    // Maps are "dictionaries" with a unique key and a value. The value can be data, an object or even an anonymous method (as below).
+    const keyEvents = new Map([
+        // key               value
+        ["Enter",   () => {addButton.click();}],
+        ["Delete",  () => {if (document.activeElement !== theInput) document.querySelector("ul>li:last-of-type").remove();}]  
+    ]);
+
+    // Note that the Map (capital) class is different from the map (lowercase) method used for arrays.
+    const myArray = [1, 5, 10, 12];
+    myArray.map((x) => x+1);
+
+    // Also that the Set (capital) class is different from the set (lowercase) method used for Maps.
+    const mySet = new Set();
+    keyEvents.set("Escape", () => {return;});
+
+    // In the context of for-of loops, key and value are typically used (k,v). I used action here to represent a parameterless function (k,a).
+    for (const [key,action] of keyEvents) if (eventArgs.key == key) action();
 });
 
 /*

@@ -13,7 +13,9 @@
     visibility: hidden;
 }
 
-
+body {
+    background-color: #8AC;
+}
 h1 {
     text-align: center;
 }
@@ -32,4 +34,14 @@ h1 {
 .flex>input, .flex>button {
     margin: 0 10px;
 }
-
+.flex>button {
+    background-color: firebrick;
+    color: white;
+}
+input,button {
+    border-radius: 8px;
+}
+button {
+    background-color: rgb(35, 69, 96);
+    color: white;
+}

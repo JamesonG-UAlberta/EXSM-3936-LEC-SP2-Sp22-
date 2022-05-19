@@ -19,8 +19,22 @@ function clearButtonClick() {
 
 addButton.addEventListener("click", addButtonClick);
 clearButton.addEventListener("click", clearButtonClick);
+document.addEventListener("keydown", eventArgs => {
+    // Check the event arguments to see what key was pressed.
+    if (eventArgs.key === "Enter")
+    {
+        // Emulate a click on the add button if the key was Enter.
+        addButton.click();
+    }
+    else if (eventArgs.key === "Delete" && document.activeElement !== theInput)
+    {
+        document.querySelector("ul>li:last-of-type").remove();
+    }
+});
 
 /*
+[Week 02 Challenges]
+
 Try to add:
 
 -A remove button to each item (styling your choice).

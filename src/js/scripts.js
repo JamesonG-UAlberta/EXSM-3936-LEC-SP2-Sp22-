@@ -7,9 +7,25 @@ theInput.focus();
 function addButtonClick() {
     if (theInput.value.trim() !== "") {
         const newLI = document.createElement("li");
+        const newRemoveButton = document.createElement("button");
+
+        // Set up LI
         newLI.innerText = theInput.value.trim();
-        theInput.value = "";
+
+        // Set up Button
+        newRemoveButton.innerText = "Remove";
+        newRemoveButton.addEventListener("click", () => {
+            newLI.remove();
+        });
+
+        // Add Button to LI
+        newLI.appendChild(newRemoveButton);
+
+        // Add LI to List
         theList.appendChild(newLI);
+
+        // Reset Input
+        theInput.value = "";
         theInput.focus();
     }
 }
@@ -22,8 +38,6 @@ clearButton.addEventListener("click", clearButtonClick);
 
 /*
 Try to add:
-
--A remove button to each item (styling your choice).
 -Display an error when the user tries to add a blank field, hide the error on the next successful add.
 -Add checkboxes to each item.
 -Add some styling to make it "pretty".

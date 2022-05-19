@@ -1,7 +1,35 @@
 .important {
     transform: scale(-1, 1);
 }
-
+* {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.container {
+    width: 860px;
+    margin: 0 auto;
+}
 .hidden {
     visibility: hidden;
 }
+
+
+h1 {
+    text-align: center;
+}
+
+/* List Formatting */
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+}
+.flex>p {
+    text-align: left;
+    width: 100%;
+}
+.flex>input, .flex>button {
+    margin: 0 10px;
+}
+

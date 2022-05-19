@@ -9,10 +9,11 @@ function addButtonClick() {
     if (theInput.value.trim() !== "") {
         errorMessage.classList.add("hidden");
         const newLI = document.createElement("li");
+        newLI.classList.add("flex");
         const newRemoveButton = document.createElement("button");
 
         // Set up LI
-        newLI.innerHTML = '<input type="checkbox">' + theInput.value.trim();
+        newLI.innerHTML = '<input type="checkbox"><p>' + theInput.value.trim() + "</p>";
 
         // Set up Button
         newRemoveButton.innerText = "Remove";
@@ -43,9 +44,6 @@ addButton.addEventListener("click", addButtonClick);
 clearButton.addEventListener("click", clearButtonClick);
 
 /*
-Try to add:
--Add some styling to make it "pretty".
-
 Challenge:
 -Add a separate list for completed items.
     -When a checkbox is ticked, move the item to the completed list. 

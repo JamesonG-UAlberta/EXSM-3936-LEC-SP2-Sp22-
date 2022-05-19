@@ -12,7 +12,7 @@ function addButtonClick() {
         const newRemoveButton = document.createElement("button");
 
         // Set up LI
-        newLI.innerText = theInput.value.trim();
+        newLI.innerHTML = '<input type="checkbox">' + theInput.value.trim();
 
         // Set up Button
         newRemoveButton.innerText = "Remove";
@@ -44,7 +44,6 @@ clearButton.addEventListener("click", clearButtonClick);
 
 /*
 Try to add:
--Add checkboxes to each item.
 -Add some styling to make it "pretty".
 
 Challenge:

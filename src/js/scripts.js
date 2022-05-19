@@ -4,7 +4,8 @@ const clearButton = document.querySelector("button:last-of-type");
 const theList = document.querySelector("ul");
 theInput.focus();
 
-function addButtonClick() {
+addButton.addEventListener("click", eventArgs => {
+    eventArgs.preventDefault();
     if (theInput.value.trim() !== "") {
         const newLI = document.createElement("li");
         newLI.innerText = theInput.value.trim();
@@ -12,13 +13,10 @@ function addButtonClick() {
         theList.appendChild(newLI);
         theInput.focus();
     }
-}
-function clearButtonClick() {
+});
+clearButton.addEventListener("click", () => {
     theList.innerHTML = "";
-}
-
-addButton.addEventListener("click", addButtonClick);
-clearButton.addEventListener("click", clearButtonClick);
+});
 document.addEventListener("keydown", eventArgs => {
     switch (eventArgs.key) {
         case "Enter":

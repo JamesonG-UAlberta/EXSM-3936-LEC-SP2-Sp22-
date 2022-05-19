@@ -2,10 +2,12 @@ const theInput = document.querySelector("input");
 const addButton = document.querySelector("button:first-of-type");
 const clearButton = document.querySelector("button:last-of-type");
 const theList = document.querySelector("ul");
+const errorMessage = document.querySelector("#error");
 theInput.focus();
 
 function addButtonClick() {
     if (theInput.value.trim() !== "") {
+        errorMessage.classList.add("hidden");
         const newLI = document.createElement("li");
         const newRemoveButton = document.createElement("button");
 
@@ -27,6 +29,10 @@ function addButtonClick() {
         // Reset Input
         theInput.value = "";
         theInput.focus();
+    } 
+    else 
+    {
+        errorMessage.classList.remove("hidden");
     }
 }
 function clearButtonClick() {
@@ -38,7 +44,6 @@ clearButton.addEventListener("click", clearButtonClick);
 
 /*
 Try to add:
--Display an error when the user tries to add a blank field, hide the error on the next successful add.
 -Add checkboxes to each item.
 -Add some styling to make it "pretty".
 
